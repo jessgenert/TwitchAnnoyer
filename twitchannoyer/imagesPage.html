@@ -5,6 +5,7 @@
             href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     </head>
     <script src="./imageList.js"></script>
+    <script src="./saveFiles.js"></script>
     <body>
         <div class="mb-3">
             <input type="text" id="imageGroupName" class="form-control" disabled >
@@ -15,11 +16,10 @@
         </div>
         
         <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Upload Images:</label>
-            <input class="form-control" type="file" id="formFileMultiple"
-                multiple>
+            <label for="formFile" class="form-label">Upload Images:</label>
+            <input class="form-control" type="file" id="formFile" accept="image/png">
         </div>
-
+        <button type="button" class="btn btn-primary" id="addImages">Upload</button>
         <button type="button" class="btn btn-primary" id="newImages">Create New</button>
     </body>
 </html>

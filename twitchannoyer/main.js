@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen, ipcMain  }= require('electron');
+const { app, BrowserWindow, screen, ipcMain, dialog  }= require('electron');
 const path = require('node:path')
 
 let win 
@@ -54,7 +54,9 @@ const appStart = () => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) appStart()
       })
-     
+      ipcMain.handle("showDialog", (e, message) => {
+        dialog.showOpenDialog(win, { message });
+    });
   })
 
 
