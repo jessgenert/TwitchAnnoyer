@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "start electron --enable-transparent-visuals --disable-gpu ."
+    "start": "start electron ."
   },
   "repository": {
     "type": "git",

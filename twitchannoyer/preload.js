@@ -1,3 +1,6 @@
+const { ipcRenderer } = require('electron');
+
+
 const querystring = require('querystring');
 
 
@@ -49,19 +52,11 @@ window.addEventListener('DOMContentLoaded', () => {
     let loadDisplay = document.getElementById('load')
     loadDisplay.addEventListener('click', () => {
 
-       let selectDisplay = document.getElementById('selectScreen').value
-       let currentDisplay = data.displays.filter(display => { return display.label === selectDisplay})[0]
-        window.open('mainPage.html', 'mainDisplay', `height=${currentDisplay.bounds.height},width=${currentDisplay.bounds.width},
-        top=${currentDisplay.bounds.y},left=${currentDisplay.bounds.x},frame=false,contextIsolation=false, nodeIntegration=yes,
-        ignoreMouseEvents=true,  transparent=true,focusable=false,resizable=false,movable=false,fullscreen=true,
-        backgroundColor=#000000
-        
-        
-        `
-        
-        )
-//alwaysOnTop=true
-    });
+        let selectDisplay = document.getElementById('selectScreen').value
+        let currentDisplay = data.displays.filter(display => { return display.label === selectDisplay })[0]
 
-})
+        ipcRenderer.send('main:add', currentDisplay);
 
+    })
+
+});
