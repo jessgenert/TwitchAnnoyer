@@ -1,10 +1,14 @@
-const { app, BrowserWindow, protocol } = require('electron');
+const { app, BrowserWindow, screen, ipcMain  }= require('electron');
 const path = require('node:path')
 
-
+let win 
 
 const appStart = () => {
-    const win = new BrowserWindow({
+  let data = {
+    displays: screen.getAllDisplays()
+  }
+
+     win = new BrowserWindow({
       width: 800,
       height: 600,
       webPreferences: {
@@ -14,21 +18,21 @@ const appStart = () => {
       }
     })
   
-    win.loadFile('index.html')
+    win.loadFile('index.html', {query: {"data": JSON.stringify(data)}})
+
+ 
   }
 
 
 
 
   app.whenReady().then(() => {
+   
     appStart()
-
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) appStart()
       })
-
-
-    
+     
   })
 
 
