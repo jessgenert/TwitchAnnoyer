@@ -1,0 +1,22 @@
+{
+  "name": "twitchannoyer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "start electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessgenert/TwitchAnnoyer.git"
+  },
+  "author": "Jess Genert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessgenert/TwitchAnnoyer/issues"
+  },
+  "homepage": "https://github.com/jessgenert/TwitchAnnoyer#readme",
+  "devDependencies": {
+    "electron": "^26.2.0"
+  }
+}
