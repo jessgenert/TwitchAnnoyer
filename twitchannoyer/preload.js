@@ -54,9 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let query = querystring.parse(global.location.search)
     let data = JSON.parse(query['?data'])
-    console.log(data.displays[0].label)
     data.displays.forEach(display => {
-        console.log(display)
         let newOption = document.createElement('option')
         newOption.text = display.label
         document.getElementById('selectScreen').add(newOption)

@@ -6,6 +6,7 @@
     </head>
     <script src="./imageList.js"></script>
     <script src="./saveFiles.js"></script>
+    <script src="./deleteFiles.js"></script>
     <body>
         <div class="mb-3">
             <input type="text" id="imageGroupName" class="form-control" disabled >
@@ -19,7 +20,10 @@
             <label for="formFile" class="form-label">Upload Images:</label>
             <input class="form-control" type="file" id="formFile" accept="image/png">
         </div>
+        <div class="mb-3">
+            <input type="text" id="imageName" class="form-control" disabled >
+        </div>
         <button type="button" class="btn btn-primary" id="addImages">Upload</button>
-        <button type="button" class="btn btn-primary" id="newImages">Create New</button>
+        <button type="button" class="btn btn-primary" id="deleteImages">Delete</button>
     </body>
 </html>
