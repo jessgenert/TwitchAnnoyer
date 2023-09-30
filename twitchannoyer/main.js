@@ -26,6 +26,8 @@ ipcMain.on('main:add', (event, currentDisplay) => {
   let newWindow = new BrowserWindow({
     width: currentDisplay.bounds.width,
     height: currentDisplay.bounds.height,
+    maxWidth: currentDisplay.bounds.width,
+    maxHeight: currentDisplay.bounds.height,
     x: 0,
     y: 0,
 
@@ -35,20 +37,20 @@ ipcMain.on('main:add', (event, currentDisplay) => {
       contextIsolation: false,
       nodeIntegration: true
     },
-    // transparent:true,
+    transparent:true,
     // focusable:true,
     resizable: false,
     movable: false,
     fullscreen: true,
     hasShadow: false,
     // minimizable:false,
-    // alwaysOnTop:true
+    alwaysOnTop:true
   })
 
 
   newWindow.loadFile('mainPage.html')
   newWindow.show()
-  // newWindow.setIgnoreMouseEvents(true)
+  newWindow.setIgnoreMouseEvents(true)
 })
 ipcMain.on('redirect:add', () => {
   const authWindow = new BrowserWindow({
