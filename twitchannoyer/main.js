@@ -11,6 +11,7 @@ const appStart = () => {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: './icon.png',
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
@@ -28,6 +29,7 @@ ipcMain.on('main:add', (event, currentDisplay) => {
     height: currentDisplay.bounds.height,
     maxWidth: currentDisplay.bounds.width,
     maxHeight: currentDisplay.bounds.height,
+    icon: './icon.png',
     x: 0,
     y: 0,
 
@@ -37,14 +39,14 @@ ipcMain.on('main:add', (event, currentDisplay) => {
       contextIsolation: false,
       nodeIntegration: true
     },
-    transparent:true,
+    transparent: true,
     // focusable:true,
     resizable: false,
     movable: false,
     fullscreen: true,
     hasShadow: false,
-    minimizable:false,
-    alwaysOnTop:true
+    minimizable: false,
+    alwaysOnTop: true
   })
 
 
@@ -56,6 +58,7 @@ ipcMain.on('redirect:add', () => {
   const authWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: './icon.png',
     webPreferences: {
       nodeIntegration: false
     }
@@ -65,7 +68,6 @@ ipcMain.on('redirect:add', () => {
 
   authWindow.loadURL(authUrl);
   authWindow.webContents.on('will-navigate', function (event, newUrl) {
-    console.log('access_token', newUrl.slice(newUrl.indexOf("=") + 1, newUrl.indexOf("&")))
     localStorage.setItem('access_token', newUrl.slice(newUrl.indexOf("=") + 1, newUrl.indexOf("&")))
     if (newUrl.startsWith('http://localhost')) {
       setTimeout(() => {

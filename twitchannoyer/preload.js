@@ -25,9 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const makeNewDir = async () => {
             try {
                 const projectFolder = join(__dirname, 'images', imageGroupName);
-                const createDir = await mkdir(projectFolder, { recursive: true });
-
-                console.log(`created ${createDir}`);
+                await mkdir(projectFolder, { recursive: true });
             } catch (err) {
                 console.error(err.message);
             }

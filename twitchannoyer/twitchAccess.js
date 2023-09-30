@@ -1,14 +1,14 @@
 var { ipcRenderer } = require('electron')
 window.addEventListener('DOMContentLoaded', () => {
-function getAccess() {
+    function getAccess() {
 
-    const auth = document.getElementById('auth')
-    auth.addEventListener('click', () => {
-        ipcRenderer.send('redirect:add');
-        
-    })
-   
-}
+        const auth = document.getElementById('auth')
+        auth.addEventListener('click', () => {
+            ipcRenderer.send('redirect:add');
 
-getAccess()
+        })
+
+    }
+
+    getAccess()
 })
