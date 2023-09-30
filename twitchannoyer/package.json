@@ -18,5 +18,16 @@
   "homepage": "https://github.com/jessgenert/TwitchAnnoyer#readme",
   "devDependencies": {
     "electron": "^26.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "electron-browser-storage": "^1.0.7",
+    "express-session": "^1.17.3",
+    "https-proxy-agent": "^7.0.2",
+    "passport": "^0.6.0",
+    "passport-oauth": "^1.0.0",
+    "request": "^2.88.2",
+    "tmi.js": "^1.8.5"
   }
 }

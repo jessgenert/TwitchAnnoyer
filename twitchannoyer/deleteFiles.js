@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const deleteImage = document.getElementById('deleteImages')
 
       deleteImage.addEventListener('click', () => {
-        unlinkSync(`./images/${imageGroupName}/${imageName.value}`)
+        unlinkSync(`./images/${imageGroupName}/${imageName.value}.png`)
         
         imageGroup.innerHTML = "";
         fs.readdir(`./images/${imageGroupName}/`, (err, files) => {
@@ -25,8 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
           let images = document.querySelectorAll('img')
           for (i of images) {
            i.addEventListener('click', function() {
-             console.log(this.id);
-             document.getElementById('imageName').value = this.id
+             document.getElementById('imageName').value = this.id.slice(0, this.id.length-4)
            });
          }
         });

@@ -1,7 +1,5 @@
-const { ipcRenderer } = require('electron');
 const { mkdir } = require('node:fs/promises');
 const { join } = require('node:path');
-const querystring = require('querystring');
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -51,25 +49,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 
-
-    let query = querystring.parse(global.location.search)
-    let data = JSON.parse(query['?data'])
-    data.displays.forEach(display => {
-        let newOption = document.createElement('option')
-        newOption.text = display.label
-        document.getElementById('selectScreen').add(newOption)
-    })
-
-
-    let loadDisplay = document.getElementById('load')
-    loadDisplay.addEventListener('click', () => {
-
-        let selectDisplay = document.getElementById('selectScreen').value
-        let currentDisplay = data.displays.filter(display => { return display.label === selectDisplay })[0]
-
-        ipcRenderer.send('main:add', currentDisplay);
-
-    })
-    
 
 });

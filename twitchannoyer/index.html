@@ -3,6 +3,8 @@
   <head>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
   </head>
+  <script src="./twitchAccess.js"></script>
+  <script src="./overlay.js"></script>
   <body>
           <div class="mb-3">
             <label for="selectImages" class="form-label">Images to use:</label>
@@ -24,7 +26,16 @@
             <select id="selectScreen" class="form-select">
             </select>
           </div>
-          
+
+          <div class="mb-3">
+            <label for="twitchChannel" class="form-label">Twitch Channel:</label>
+            <input id="twitchChannel" class="form-control">
+            </input>
+          </div>
+
+            
+          <button type="button" class="btn btn-primary" id="auth">Authorize Bot</button>
+         
           <button type="button" class="btn btn-primary" id="load">Load Display</button>
   </body>
 </html>
