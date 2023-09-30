@@ -2,9 +2,9 @@ const fs = require('fs');
 require('dotenv').config();
 const tmi = require('tmi.js');
 
-const channel = `#jessthanthree`;
+const channel = localStorage.getItem('twitchChannel');
 const username = `annoyancebot2`;
-const token = `${localStorage.getItem('access_token')}`;
+const token = localStorage.getItem('access_token');
 
 let images = []
 let imageList =  ""
@@ -64,6 +64,10 @@ client.on('message', (channel, tags, message, self) => {
 			img.style.left = document.body.clientWidth * Math.random() + 'px';
 		  
 			document.body.appendChild(img);
+
+			setTimeout(() => {
+				document.body.removeChild(img);
+			}, 10000)
 		  }
 
 		 if(command.includes('sm')){

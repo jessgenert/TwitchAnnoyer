@@ -18,7 +18,8 @@ function loadOverlay() {
         
         let selectDisplay = document.getElementById('selectScreen').value
         let currentDisplay = data.displays.filter(display => { return display.label === selectDisplay })[0]
-        window.localStorage.setItem('twitchChannel', document.getElementById('twitchChannel').value)
+        console.log(document.getElementById('twitchChannel').value, )
+        window.localStorage.setItem('twitchChannel', `#${document.getElementById('twitchChannel').value}`)
         window.localStorage.setItem('imageGroupName', document.getElementById('newImageGroup').value)
         console.log(currentDisplay)
         ipcRenderer.send('main:add', currentDisplay);

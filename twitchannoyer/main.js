@@ -43,7 +43,7 @@ ipcMain.on('main:add', (event, currentDisplay) => {
     movable: false,
     fullscreen: true,
     hasShadow: false,
-    // minimizable:false,
+    minimizable:false,
     alwaysOnTop:true
   })
 
